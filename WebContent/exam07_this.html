@@ -8,7 +8,7 @@
 		<script src="common/bootstrap-4.6.0/js/bootstrap.bundle.min.js"></script>
 		<script src="common/bootstrap-4.6.0/js/bootstrap.bundle.min.js"></script>
 		<script>
-			console.log(this);
+			console.log(this); //window 객체 참조(global)
 			
 			const person = {
 				name:"홍길동",
@@ -29,7 +29,7 @@
 			console.log(age);
 			
 			const method = person.eat;
-			method(); //window 객체 참조
+			method(); //window 객체 참조 -> global 범위에서 호출
 			
 			/* //클래스 선언
 			var People = function() {
