@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="/javascript/common/bootstrap-4.6.0/css/bootstrap.min.css">
+		<script src="/javascript/common/js/jquery-3.5.1.min.js"></script>
+		<script src="/javascript/common/bootstrap-4.6.0/js/bootstrap.bundle.min.js"></script>
+		<script src="/javascript/common/bootstrap-4.6.0/js/bootstrap.bundle.min.js"></script>
+		<script>
+			//배열 구조 분해 할당
+			var arr1 = [10, 20];
+			/*
+			var x1 = arr1[0];
+			var y1 = arr1[1];
+			*/
+			var [x1, y1] = arr1;
+			console.log("x:", x1);
+			console.log("y:", y1);
+			
+			var arr2 = [10, 20, 30, 40, 50];
+			var [x2, y2, ...rest] = arr2; //...을 rest operator라고 함 (대입연산자 좌측 -> 나머지)
+			console.log(x2);
+			console.log(y2);
+			console.log(rest);
+			
+			var arr3 = [...arr2, 60, 70]; // ...을 spread operator라고 함 (대입연산자 우측 -> 펼쳐서 넣어라)
+			console.log(arr3);
+			
+			
+			//객체 구조 분해 할당
+			var obj1 = {x:3, y:5, z:7, name:"홍길동"};
+			/*
+			var x3 = obj1.x;
+			var y3 = obj1.y;
+			*/
+			/*
+			var {x, y} = obj1;
+			console.log(x);
+			console.log(y);
+			*/
+			
+			var {x, y, ...rest} = obj1; //대입연산자 좌측
+			console.log(x);
+			console.log(y);
+			console.log(rest); //z와 name을 갖고 있는 객체 rest
+		
+			var obj2 = {k:9, m:10, ...obj1}; //대입연산자 우측
+			//var obj2 = obj1.concat({k:9, m:10});
+			var obj3 = {...obj1, x:30}; //덮어쓰기
+			console.log(obj3);
+			
+		</script>
+	</head>
+	<body>
+		<div class="card">
+			<div class="card-header">
+				구조분해 할당 이해
+			</div>
+			<div class="card-body">
+
+			</div>
+		</div>
+	</body>
+</html>
