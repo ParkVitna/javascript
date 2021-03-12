@@ -36,7 +36,8 @@
                `;
                $("#content").html(htmlFragment);
             })
-            .fail((error) => {
+            .catch((error) => {
+            	console.log("에러발생");
                console.log(error)
             })
             .always(() => {
