@@ -7,13 +7,20 @@
 		<script src="/javascript/common/js/jquery-3.5.1.min.js"></script>
 		<script src="/javascript/common/bootstrap-4.6.0/js/bootstrap.bundle.min.js"></script>
 		<script src="/javascript/common/bootstrap-4.6.0/js/bootstrap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 		<script>
 			const handleClick = () => {
-				$.ajax({url:"exam07_ajax_data.html"})
-					.done((data)=>{
-						const content = $("#content");
-						content.html(data);
-					});
+				axios.get("exam07_ajax_data.html")
+				.then((response) => {
+					console.log(response);
+					$("#content").html(response.data);
+				})
+				.catch((response) => {
+					console.log(response);
+				})
+				.finally(() => {
+					console.log("finally 실행");
+				});
 			};
 		</script>
 	</head>
@@ -24,7 +31,7 @@
 			</div>
 			<div class="card-body">
 				<a class="btn btn-success btn-sm" href="javascript:handleClick()">
-					AJAX 통신
+					AJAX 통신 - AXIOS
 				</a>
 				<hr/>
 				<div id="content">

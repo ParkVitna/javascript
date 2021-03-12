@@ -9,7 +9,7 @@
 		<script src="/javascript/common/bootstrap-4.6.0/js/bootstrap.min.js"></script>
 		<script>
 			const handleClick1 = () => {
-				$.get({url: "exam04_ajax_data1.json"})
+				$.ajax({url: "exam04_ajax_data1.json", method:"post"})
 				.done((data) => {
 					const htmlFragment = `
 						<div>
@@ -36,8 +36,7 @@
 					$("#content").html(htmlFragment);
 				})
 				.fail((error) => {
-					console.log("에러발생");
-					console.log(error);
+						console.log(error);
 				})
 				.always(() => {
 					console.log("마무리 실행");
@@ -45,11 +44,14 @@
 				
 			};		
 			const handleClick2 = () => {
-				$.post({url: "exam04_ajax_data2.html"})
+				$.ajax({url: "exam04_ajax_data2.html"})
 				.done((data) => {
 					$("#content").html(data);
 				})
 				.fail((error) => {
+					if(error.status === 404){
+						$("#content").html("요청 자료가 없습니다.");
+					}
 					console.log(error);
 				})
 				.always(() => {
