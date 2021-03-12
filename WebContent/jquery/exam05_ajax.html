@@ -10,7 +10,7 @@
       <script>
          const handleClick1 = () => {
             
-            $.ajax({url: "exam04_ajax_data1.json", method:"post"})
+            $.get({url: "exam04_ajax_data1.json"})
             .then((data) => {
                const htmlFragment = `
                         <div>
@@ -47,7 +47,7 @@
       
          const handleClick2 = () => {
             
-            $.ajax({url: "exam04_ajax_data2.html" , method:"get"})
+            $.post({url: "exam04_ajax_data2.html"})
             .done((data) => {
                $("#content").html(data)
             })
